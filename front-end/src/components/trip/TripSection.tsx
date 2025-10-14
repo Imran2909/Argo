@@ -1,4 +1,4 @@
-// import React, { useEffect } from "react";
+// import { useEffect } from "react";
 // import TripCard from "./TripCard";
 // import styles from "../../styles/trip/TripSection.module.css";
 // import { useDispatch, useSelector } from "react-redux";
@@ -6,16 +6,17 @@
 // import type { AppDispatch, RootState } from "../../redux/store";
 // import { CircularProgress } from "@mui/material";
 
-// // ✅ Import 3 available images
 // import atlantaImg from "../../assets/atlanta-miami.png";
 // import chicagoImg from "../../assets/chicago-losangeles.png";
 // import nyImg from "../../assets/newyork-boston.png";
+// import type { TripData } from "../../redux/trips/actionTypes";
 
 // const images = [atlantaImg, chicagoImg, nyImg];
 
 // export default function TripSection() {
 //   const dispatch = useDispatch<AppDispatch>();
-//   const { trips, loading, error } = useSelector(
+
+//   const { trips, filteredTrips, isSearchApplied, loading, error } = useSelector(
 //     (state: RootState) => state.trips
 //   );
 
@@ -50,6 +51,8 @@
 //     );
 //   }
 
+//   const displayTrips = isSearchApplied ? filteredTrips : trips;
+
 //   return (
 //     <section className={styles.tripSection}>
 //       <div className={styles.headingBlock}>
@@ -61,25 +64,27 @@
 //       </div>
 
 //       <div className={styles.tripGrid}>
-//         {trips.length > 0 ? (
-//           trips.map((t: any, index: number) => (
+//         {isSearchApplied && filteredTrips.length === 0 ? (
+//           <p style={{ textAlign: "center", marginTop: "20px" }}>
+//             No matching trips found
+//           </p>
+//         ) : (
+//           displayTrips.map((t: TripData, index: number) => (
 //             <TripCard
 //               key={t._id}
 //               title={`${t.from} → ${t.to}`}
-//               imgSrc={images[index % images.length]} // ✅ random image
+//               imgSrc={images[index % images.length]}
 //               price={t.price}
-//               oldPrice={t.price + 30} // ✅ dummy old price
-//               duration="4h 30min" // ✅ dummy duration
+//               oldPrice={t.price + 30}
+//               duration="4h 30min"
 //               seats={t.totalSeats}
-//               rating={Math.floor(Math.random() * 2) + 4} // ✅ 4 or 5
-//               date={new Date(t.dateTime).toDateString()} // ✅ format date
-//               reviews={Math.floor(Math.random() * 200) + 50} // ✅ random reviews
-//               popular={index % 2 === 0} // ✅ mark every 2nd as popular
-//               discount={index % 2 === 0 ? "25% OFF" : null} // ✅ apply randomly
+//               rating={Math.floor(Math.random() * 2) + 4}
+//               date={new Date(t.dateTime).toDateString()}
+//               reviews={Math.floor(Math.random() * 200) + 50}
+//               popular={index % 2 === 0}
+//               discount={index % 2 === 0 ? "25% OFF" : null}
 //             />
 //           ))
-//         ) : (
-//           <p>No trips available</p>
 //         )}
 //       </div>
 //     </section>
@@ -91,7 +96,11 @@
 
 
 
-import React, { useEffect } from "react";
+
+
+
+
+import { useEffect } from "react";
 import TripCard from "./TripCard";
 import styles from "../../styles/trip/TripSection.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -99,25 +108,30 @@ import { getTrips } from "../../redux/trips/actions";
 import type { AppDispatch, RootState } from "../../redux/store";
 import { CircularProgress } from "@mui/material";
 
-// ✅ Import 3 available images
 import atlantaImg from "../../assets/atlanta-miami.png";
 import chicagoImg from "../../assets/chicago-losangeles.png";
 import nyImg from "../../assets/newyork-boston.png";
+import type { TripData } from "../../redux/trips/actionTypes";
 
 const images = [atlantaImg, chicagoImg, nyImg];
 
 export default function TripSection() {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { trips, filteredTrips, loading, error } = useSelector(
-    (state: RootState) => state.trips
-  );
+  const {
+    trips,
+    filteredTrips,
+    isSearchApplied,
+    loading,
+    error,
+  } = useSelector((state: RootState) => state.trips);
 
+  // ✅ Load trips only once
   useEffect(() => {
     dispatch(getTrips());
   }, [dispatch]);
 
-  // ✅ While loading
+  // ✅ Loading UI
   if (loading) {
     return (
       <section className={styles.tripSection}>
@@ -132,7 +146,7 @@ export default function TripSection() {
     );
   }
 
-  // ✅ On error
+  // ✅ Error UI
   if (error) {
     return (
       <section className={styles.tripSection}>
@@ -146,40 +160,46 @@ export default function TripSection() {
     );
   }
 
-  // ✅ Use filtered trips if search applied
-  const list = filteredTrips.length > 0 ? filteredTrips : trips;
+  // ✅ Decide which trips to show
+  const displayTrips =
+    isSearchApplied && filteredTrips.length > 0
+      ? filteredTrips
+      : !isSearchApplied
+      ? trips
+      : [];
 
   return (
     <section className={styles.tripSection}>
       <div className={styles.headingBlock}>
         <p className={styles.mainHeading}>Available Trips</p>
         <p className={styles.subHeading}>
-          Choose from our carefully selected destinations and enjoy a comfortable journey.
+          Choose from our carefully selected destinations and enjoy a
+          comfortable journey.
         </p>
       </div>
 
       <div className={styles.tripGrid}>
-        {list.length > 0 ? (
-          list.map((t: any, index: number) => (
-            <TripCard
-              key={t._id}
-              title={`${t.from} → ${t.to}`}
-              imgSrc={images[index % images.length]} // ✅ random image
-              price={t.price}
-              oldPrice={t.price + 30} // ✅ dummy old price
-              duration="4h 30min" // ✅ dummy duration
-              seats={t.totalSeats}
-              rating={Math.floor(Math.random() * 2) + 4} // ✅ 4 or 5
-              date={new Date(t.dateTime).toDateString()} // ✅ formatted date
-              reviews={Math.floor(Math.random() * 200) + 50} // ✅ random reviews
-              popular={index % 2 === 0} // ✅ mark every 2nd as popular
-              discount={index % 2 === 0 ? "25% OFF" : null} // ✅ random discount
-            />
-          ))
-        ) : (
+        {isSearchApplied && filteredTrips.length === 0 ? (
           <p style={{ textAlign: "center", marginTop: "20px" }}>
             No matching trips found
           </p>
+        ) : (
+          displayTrips.map((t: TripData, index: number) => (
+            <TripCard
+              key={t._id}
+              title={`${t.from} → ${t.to}`}
+              imgSrc={images[index % images.length]}
+              price={t.price}
+              oldPrice={t.price + 30}
+              duration="4h 30min"
+              seats={t.totalSeats}
+              rating={Math.floor(Math.random() * 2) + 4}
+              date={new Date(t.dateTime).toDateString()}
+              reviews={Math.floor(Math.random() * 200) + 50}
+              popular={index % 2 === 0}
+              discount={index % 2 === 0 ? "25% OFF" : null}
+            />
+          ))
         )}
       </div>
     </section>

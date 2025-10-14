@@ -9,12 +9,14 @@ import {
 } from "./actionTypes";
 
 import type { TripData } from "./actionTypes";
+import type { AnyAction } from "redux";
 
 interface TripState {
   loading: boolean;
   trips: TripData[];
   filteredTrips: TripData[];
   error: string | null;
+  isSearchApplied: boolean;
 }
 
 const initialState: TripState = {
@@ -22,9 +24,8 @@ const initialState: TripState = {
   trips: [],
   filteredTrips: [],
   error: null,
+  isSearchApplied: false,
 };
-
-import type { AnyAction } from "redux";
 
 export const tripReducer = (
   state: TripState = initialState,
@@ -57,18 +58,56 @@ export const tripReducer = (
         error: action.payload,
       };
 
+    // case FILTER_TRIPS: {
+    //   const { from, to, date } = action.payload;
+
+    //   const filtered = state.trips.filter((trip) => {
+    //     const tripDate = new Date(trip.dateTime)
+    //       .toISOString()
+    //       .slice(0, 10);
+
+    //     const matchFrom = from
+    //       ? trip.from.toLowerCase().includes(from.toLowerCase())
+    //       : true;
+
+    //     const matchTo = to
+    //       ? trip.to.toLowerCase().includes(to.toLowerCase())
+    //       : true;
+
+    //     const matchDate = date ? tripDate === date : true;
+
+    //     return matchFrom && matchTo && matchDate;
+    //   });
+
+    //   return {
+    //     ...state,
+    //     filteredTrips: filtered,
+    //     isSearchApplied: true,
+    //   };
+    // }
+
     case FILTER_TRIPS: {
       const { from, to, date } = action.payload;
+
+      const toLocalYMD = (d: Date) => {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, "0");
+        const day = String(d.getDate()).padStart(2, "0");
+        return `${y}-${m}-${day}`;
+      };
+
       const filtered = state.trips.filter((trip) => {
+        const tripDateLocal = toLocalYMD(new Date(trip.dateTime)); // ✅ normalize backend ISO to local Y-M-D
+
         const matchFrom = from
           ? trip.from.toLowerCase().includes(from.toLowerCase())
           : true;
+
         const matchTo = to
           ? trip.to.toLowerCase().includes(to.toLowerCase())
           : true;
-        const matchDate = date
-          ? new Date(trip.dateTime).toISOString().split("T")[0] === date
-          : true;
+
+        const matchDate = date ? tripDateLocal === date : true;
 
         return matchFrom && matchTo && matchDate;
       });
@@ -76,6 +115,7 @@ export const tripReducer = (
       return {
         ...state,
         filteredTrips: filtered,
+        isSearchApplied: true,
       };
     }
 

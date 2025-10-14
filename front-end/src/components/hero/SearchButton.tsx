@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "../../styles/hero/Hero.module.css";
 
-export default function SearchButton() {
+interface SearchButtonProps {
+  onClick: () => void;
+}
+
+export default function SearchButton({ onClick }: SearchButtonProps) {
   return (
-    <button className={styles.searchButton}>Search Trips</button>
+    <button className={styles.searchButton} onClick={onClick}>
+      Search
+    </button>
   );
 }
