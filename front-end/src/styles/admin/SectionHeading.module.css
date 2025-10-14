@@ -1,0 +1,33 @@
+.sectionHeading {
+  width: 1095.0016px; /* 1232 * 0.8888 */
+  height: 37.3296px;  /* 42 * 0.8888 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 22.2200px;
+  padding: 0;
+}
+
+.title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600 !important;
+  font-size: 15.9984px; /* 18 * 0.8888 */
+  line-height: 24.8864px;
+  color: #111827;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 10.6656px; /* ~12*0.8888 */
+}
+
+/* MUI Button will apply baseline styles; we use this to override spacing */
+.button {
+  height: 37.3296px; /* 42 * 0.8888 */
+  border-radius: 3.5552px; /* 4 * 0.8888 */
+  text-transform: none;
+  padding-left: 11.1100px;
+  padding-right: 11.1100px;
+  font-size: 12.4432px !important; /* scaled */
+}

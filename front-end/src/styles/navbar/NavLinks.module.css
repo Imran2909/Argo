@@ -1,0 +1,42 @@
+/* src/styles/NavLinks.module.css - Scoped for Nav chunk */
+.navLinks {
+  display: flex;
+  justify-content: space-around;
+  width: 405px;
+  height: 24px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 24px;  /* Space between links */
+}
+
+.navLink {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: #757575;  /* Secondary text */
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.navLinkActive {
+  color: #1976d2;  /* Primary on hover/active */
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 599px) {
+  .navLinks {
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .navLink {
+    font-size: 14px;
+  }
+}

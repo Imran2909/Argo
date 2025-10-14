@@ -1,0 +1,59 @@
+.tripSection {
+  width: 1094.016px;
+  max-height: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  align-items: center;
+  /* padding-top: 35.52px;
+  padding-bottom: 35.52px; */
+  margin-top: 36px;
+  margin-bottom: 100px;
+}
+
+.headingBlock {
+  width: 100%;
+  max-width: 1094.016px;
+  height: 71px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 31.104px;
+  margin-top: 0px;
+}
+
+.mainHeading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 26.64px; /* 30 × 0.888 */
+  line-height: 31.968px; /* 36 × 0.888 */
+  text-align: center;
+  color: #111827;
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+.subHeading {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 15.984px; /* 18 × 0.888 */
+  line-height: 24.864px; /* 28 × 0.888 */
+  text-align: center;
+  color: #6b7280;
+  margin: 12px 0px;
+  padding: 0px 0px;
+}
+
+.tripGrid {
+  width: 1095px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 36px;
+  column-gap: 28px;
+  justify-content: center;
+  margin-top: 10px;
+  /* border: 1px solid rgb(0, 0, 0); */
+}

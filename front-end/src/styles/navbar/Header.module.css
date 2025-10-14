@@ -1,0 +1,27 @@
+/* src/styles/Header.module.css - Scoped for full Header */
+.header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 28px 40px 28px;  /* 30px margins */
+  background-color: #ffffff;  /* Paper white */
+  border-bottom: 1px solid #e0e0e0;  /* Grey border */
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 599px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 0 16px;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .header {
+    padding: 0 24px;
+  }
+}

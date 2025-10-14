@@ -1,0 +1,18 @@
+.section {
+  width: 100%;
+  height: auto;      /* was fixed */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;         /* reduced from 22px */
+}
+.title{
+  font-weight: 600 !important;
+}
+.cardContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 16px;
+  height: auto;
+}

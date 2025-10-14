@@ -1,0 +1,31 @@
+.badge {
+  height: 21.3312px;   /* 24 * 0.8888 */
+  border-radius: 3.5552px; /* 4 * 0.8888 */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400 !important;
+  font-size: 12.4432px; /* 14 * 0.8888 */
+}
+
+/* confirm uses width 76.3568 (86*0.8888) but allow flexible padding instead of fixed width */
+.confirmed {
+  background-color: #dcfce7;
+  min-width: 76.3568px;
+}
+
+.pending {
+  background-color: #fef9c3;
+  min-width: 65.7712px; /* 74*0.8888 */
+}
+
+.cancelled {
+  background-color: #fde2e2;
+  min-width: 65.7712px;
+}
+.text{
+  font-size: 12px !important;
+}

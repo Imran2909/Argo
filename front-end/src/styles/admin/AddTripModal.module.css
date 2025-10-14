@@ -1,0 +1,81 @@
+.modalContainer {
+  position: absolute;
+  width: 840.8848px;        /* 946 * 0.8888 */
+  height: 451.7504px;       /* 508 * 0.8888 */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  border-radius: 21.3312px; /* 24 * 0.8888 */
+  padding: 49.7728px;       /* 56 * 0.8888 */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 21.3312px;           /* 24 * 0.8888 */
+  opacity: 1;
+}
+
+.modalTitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 17.776px;      /* 20 * 0.8888 */
+  font-weight: 600;         /* unchanged */
+  margin-bottom: 7.1104px;  /* 8 * 0.8888 */
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 21.3312px;           /* 24 * 0.8888 */
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5552px;            /* 4 * 0.8888 */
+  width: 362.7264px;        /* 408 * 0.8888 */
+}
+
+.inputGroupFull {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5552px;            /* 4 * 0.8888 */
+  width: 740.1792px;        /* 834 * 0.8888 */
+}
+
+.inputLabel {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;         /* unchanged */
+  font-size: 12.4432px;     /* 14 * 0.8888 */
+  line-height: 100%;
+}
+
+.inputField {
+  width: 100%;
+  height: 48.0000px;         /* 54 * 0.8888 */
+  border: 1px solid #d1d1d1;
+  border-radius: 5.3328px;   /* 6 * 0.8888 */
+  padding: 10.6656px;        /* 12 * 0.8888 */
+  font-size: 12.4432px;      /* 14 * 0.8888 */
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+}
+
+.buttonWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.submitBtn {
+  width: 183.7824px;         /* 206.765625 * 0.8888 */
+  height: 42.6624px;         /* 48 * 0.8888 */
+  background-color: #2563eb !important;
+  color: white !important;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;          /* unchanged */
+  font-size: 12.4432px;      /* 14 * 0.8888 */
+  border-radius: 3.5552px !important; /* 4 * 0.8888 */
+  text-transform: none !important;
+}

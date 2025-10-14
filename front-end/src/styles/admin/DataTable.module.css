@@ -1,0 +1,33 @@
+.tableWrapper {
+  width: 1095.0016px;
+  max-height: 280px;
+  border: 1px solid #cfcfcf;
+  border-radius: 7px;
+  overflow: hidden;
+  background: #ffffff;
+  box-sizing: border-box;
+
+}
+.dataCell,
+.tableWrapper table td {
+  height: 56px !important;
+  vertical-align: middle;
+}
+
+.actionsCell{
+  width: 50px;
+  display: flex;
+  justify-content: space-between;  
+}
+
+.tableWrapper {
+  overflow-y: auto;
+}
+.tableWrapper {
+  scrollbar-width: none;
+}
+.tableWrapper table thead tr {
+  position: sticky;
+  top: 0px;
+  background-color: #ffffff;
+}

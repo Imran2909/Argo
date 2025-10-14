@@ -1,0 +1,36 @@
+/* src/assets/styles/globals.css - Full-width reset */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;  /* Prevent horizontal scroll */
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.App {
+  width: 100vw;  /* Full viewport width */
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive content padding (optional: inner margins for pages) */
+main {
+  flex: 1;
+  padding: 20px;  /* Or 0 for full-bleed */
+  width: 100%;
+  max-width: 100%;
+}

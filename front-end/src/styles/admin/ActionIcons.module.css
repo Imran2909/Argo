@@ -1,0 +1,23 @@
+.icon {
+  width: 18px;   /* scaled from 16 -> 14.2208 */
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.delete {
+  color: #ef4444; /* red tone */
+  width: 20px;
+  height: 20px;
+}
+
+.verified {
+  color: #16a34a; /* green tone */
+}
+
+.cancelled {
+  color: #ef4444;
+}

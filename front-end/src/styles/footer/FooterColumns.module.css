@@ -1,0 +1,76 @@
+/* Outer container for all columns */
+.contentSection {
+  display: flex;
+  justify-content: space-between; /* Even spacing between the 3 columns */
+  align-items: flex-start;
+  width: 1081px;
+  /* border: 1px solid rgb(0, 119, 255); */
+  height: 107px;
+}
+
+.links{
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  width: 298px;
+}
+/* Each text column */
+.textColumn {
+  /* width: 297px; */
+  height: 107px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12.5px;
+  flex-shrink: 0;
+}
+
+/* Heading */
+.columnHeading {
+  font-weight: 600; /* Semibold */
+  font-size: 12.5px;
+  color: #111827; /* Black heading */
+  margin: 0 0 8px 0; /* Equal gap below heading */
+}
+
+/* Links container */
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Equal vertical gap between all links */
+}
+
+/* Link style */
+.columnLink {
+  font-size: 12.5px;
+  color: #4b5563; /* Gray text */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.columnLink:hover {
+  color: #2563eb; /* Optional hover effect */
+}
+
+.socialMedia{
+  height: 25px;
+  width: 110px;
+  /* border: 1px solid #2563eb; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+}
+
+.socialSection{
+  display: flex;
+  justify-content: space-between;
+}
+
+.icons{
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:#9CA3AF;
+}

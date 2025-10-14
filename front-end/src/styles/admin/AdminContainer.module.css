@@ -1,0 +1,15 @@
+.container {
+  position: relative;
+  width: 1137.6640px;
+  height: auto;
+  margin-top: 40px; /* reduced again from 75px */
+  margin-left: 71.1040px;
+  background-color: #ffffff;
+  opacity: 1;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* slightly reduced gap around children */
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 80px;
+}
