@@ -6,6 +6,7 @@ import {
   GET_TRIPS_SUCCESS,
   GET_TRIPS_FAILURE,
   FILTER_TRIPS,
+  SET_SELECTED_TRIP,
 } from "./actionTypes";
 
 import type { TripData } from "./actionTypes";
@@ -17,6 +18,7 @@ interface TripState {
   filteredTrips: TripData[];
   error: string | null;
   isSearchApplied: boolean;
+  selectedTrip: TripData | null;
 }
 
 const initialState: TripState = {
@@ -25,6 +27,7 @@ const initialState: TripState = {
   filteredTrips: [],
   error: null,
   isSearchApplied: false,
+  selectedTrip: null,
 };
 
 export const tripReducer = (
@@ -58,34 +61,6 @@ export const tripReducer = (
         error: action.payload,
       };
 
-    // case FILTER_TRIPS: {
-    //   const { from, to, date } = action.payload;
-
-    //   const filtered = state.trips.filter((trip) => {
-    //     const tripDate = new Date(trip.dateTime)
-    //       .toISOString()
-    //       .slice(0, 10);
-
-    //     const matchFrom = from
-    //       ? trip.from.toLowerCase().includes(from.toLowerCase())
-    //       : true;
-
-    //     const matchTo = to
-    //       ? trip.to.toLowerCase().includes(to.toLowerCase())
-    //       : true;
-
-    //     const matchDate = date ? tripDate === date : true;
-
-    //     return matchFrom && matchTo && matchDate;
-    //   });
-
-    //   return {
-    //     ...state,
-    //     filteredTrips: filtered,
-    //     isSearchApplied: true,
-    //   };
-    // }
-
     case FILTER_TRIPS: {
       const { from, to, date } = action.payload;
 
@@ -118,6 +93,12 @@ export const tripReducer = (
         isSearchApplied: true,
       };
     }
+
+    case SET_SELECTED_TRIP:
+      return {
+        ...state,
+        selectedTrip: action.payload,
+      };
 
     default:
       return state;

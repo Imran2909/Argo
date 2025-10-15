@@ -7,6 +7,7 @@ import {
   GET_TRIPS_REQUEST,
   GET_TRIPS_SUCCESS,
   GET_TRIPS_FAILURE,
+  SET_SELECTED_TRIP,
 } from "./actionTypes";
 import { toast } from "react-toastify";
 
@@ -72,3 +73,9 @@ export const filterTrips =
       payload: filters,
     });
   };
+
+  
+  export const setSelectedTrip = (trip: TripData) => ({
+  type: SET_SELECTED_TRIP,
+  payload: trip,
+});

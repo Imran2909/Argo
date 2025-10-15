@@ -1,0 +1,188 @@
+/* Page sizing to match your requirement */
+.page {
+  width: 950px;
+  min-height: auto;
+  margin: 0 auto;
+  padding: 8px 8px 24px;
+  background: #ffffff; /* very light to mimic screenshot contrast */
+  margin-bottom: 30px;
+}
+
+/* Top banner image */
+.bannerWrap {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e9eef5;
+}
+.banner {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Generic card */
+.card {
+  background: #ffffff;
+  border: 1px solid #eef1f6;
+  border-radius: 10px;
+  margin-top: 14px;
+  padding: 18px 18px 16px;
+}
+.cardTitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 4px 0 14px;
+}
+
+/* Trip details two-column grid */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 8px;
+}
+.col {}
+.colRight {
+  text-align: right;
+}
+.metaBlock {
+  margin-bottom: 18px;
+}
+.metaBlockRight {
+  margin-bottom: 18px;
+}
+.metaLabel {
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.metaValue {
+  font-size: 13px;
+  color: #111827;
+}
+
+/* Fare block centered */
+.fareWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6px;
+}
+.fareLabel {
+  font-size: 10px;
+  color: #6b7280;
+  margin-bottom: 2px;
+}
+.farePrice {
+  color: #2563eb; /* blue */
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Seat Area */
+.seatArea {
+  background: #fbfcfe;
+  border: 1px solid #f0f3f8;
+  border-radius: 10px;
+  padding: 18px 14px 14px;
+}
+.cabinTitle {
+  text-align: center;
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 12px;
+}
+
+/* 6 x 6 grid like screenshot */
+.seatGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 38px);
+  gap: 10px 16px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+/* Seat button states */
+.seatBtn {
+  width: 38px;
+  height: 28px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  background: #f7f8fb;
+  color: #6b7280;
+  font-size: 10px;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+.seatBtn:hover {
+  transform: translateY(-1px);
+}
+.seatBooked {
+  background: #fee2e2;
+  color: #9b1c1c;
+  border-color: #f5c2c7;
+  cursor: not-allowed;
+}
+.seatSelected {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6px;
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid #e5e7eb;
+}
+.dotAvailable {
+  background: #f7f8fb;
+}
+.dotBooked {
+  background: #fee2e2;
+  border-color: #f5c2c7;
+}
+.dotSelected {
+  background: #2563eb;
+  border-color: #1d4ed8;
+}
+
+/* Selected seats card list */
+.selectedList {
+  font-size: 12px;
+  color: #4b5563;
+  padding: 6px 4px;
+}
+
+/* Bottom CTA */
+.footerCta {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+.confirmBtn {
+  background-color: #2563eb !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  padding: 8px 24px !important;
+  box-shadow: none !important;
+}

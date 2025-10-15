@@ -7,6 +7,7 @@ export const GET_TRIPS_SUCCESS = "GET_TRIPS_SUCCESS" as const;
 export const GET_TRIPS_FAILURE = "GET_TRIPS_FAILURE" as const;
 export const FILTER_TRIPS = "FILTER_TRIPS" as const;
 
+export const SET_SELECTED_TRIP = "SET_SELECTED_TRIP" as const;
 
 export interface TripData {
   _id?: string;
@@ -15,6 +16,8 @@ export interface TripData {
   dateTime: string;
   price: number;
   totalSeats: number;
+    img?: string; // ✅ add this
+
 }
 
 export type TripActionTypes =
@@ -24,4 +27,5 @@ export type TripActionTypes =
   | { type: typeof GET_TRIPS_REQUEST }
   | { type: typeof GET_TRIPS_SUCCESS; payload: TripData[] }
   | { type: typeof GET_TRIPS_FAILURE; payload: string }
-  | { type: typeof FILTER_TRIPS; payload: { from: string; to: string; date: string } };
+  | { type: typeof FILTER_TRIPS; payload: { from: string; to: string; date: string } }
+  | { type: typeof SET_SELECTED_TRIP; payload: TripData[] }

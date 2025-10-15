@@ -12,6 +12,7 @@ import {
   type SignupActionTypes,
   type LoginActionTypes,
 } from "./actionTypes";
+import { SET_SELECTED_TRIP, type TripData } from "./trips/actionTypes";
 
 const API_URL = "http://localhost:3400/api/auth/register";
 
@@ -79,5 +80,3 @@ export const loginUser =
     }
   };
 
-
-  

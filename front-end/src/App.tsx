@@ -8,6 +8,7 @@ import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Admin from "./pages/Admin";
+import TripDetails from "./pages/TripDetails";
 
 const theme = createTheme({
   typography: {
@@ -42,6 +43,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/login" element={<Login />} />
               <Route path="/admin" element={<Admin />} />
+              <Route path="/trip-details" element={<TripDetails />} />
             </Routes>
           </Suspense>
         </div>

@@ -1,7 +1,9 @@
-import React from "react";
+import { useDispatch } from "react-redux";
+import { setSelectedTrip } from "../../redux/trips/actions"; // adjust path
 import styles from "../../styles/trip/TripCard.module.css";
 import { MdAccessTimeFilled, MdGroups2 } from "react-icons/md";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   title: string;
@@ -30,6 +32,27 @@ export default function TripCard({
   popular,
   discount,
 }: Props) {
+
+const dispatch = useDispatch();
+const navigate = useNavigate()
+
+const handleBook = () => {
+dispatch(
+  setSelectedTrip({
+    _id: "",              // or pass actual trip._id if available
+    from: title.split(" to ")[0] || "",  // TEMP mapping since no 'from'
+    to: title.split(" to ")[1] || "",    // TEMP mapping since no 'to'
+    dateTime: date,       // you're already passing this prop
+    price: price,         // from existing props
+    totalSeats: seats,    // matching TripData.totalSeats
+    img:imgSrc
+  })
+);
+
+  navigate("/trip-details");
+};
+
+
   return (
     <article className={styles.card} aria-label={title}>
       <div className={styles.imageWrap}>
@@ -81,7 +104,11 @@ export default function TripCard({
             {oldPrice && <div className={styles.oldAmount}>${oldPrice}</div>}
           </div>
 
-          <button className={styles.bookBtn} aria-label={`Book ${title}`}>
+          <button
+            className={styles.bookBtn}
+            aria-label={`Book ${title}`}
+            onClick={handleBook}
+          >
             Book Now
           </button>
         </div>

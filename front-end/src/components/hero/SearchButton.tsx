@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "../../styles/hero/Hero.module.css";
 
 interface SearchButtonProps {
