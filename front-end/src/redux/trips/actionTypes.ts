@@ -5,9 +5,15 @@ export const CREATE_TRIP_FAILURE = "CREATE_TRIP_FAILURE" as const;
 export const GET_TRIPS_REQUEST = "GET_TRIPS_REQUEST" as const;
 export const GET_TRIPS_SUCCESS = "GET_TRIPS_SUCCESS" as const;
 export const GET_TRIPS_FAILURE = "GET_TRIPS_FAILURE" as const;
+
 export const FILTER_TRIPS = "FILTER_TRIPS" as const;
 
 export const SET_SELECTED_TRIP = "SET_SELECTED_TRIP" as const;
+
+export const SET_SELECTED_SEATS = "SET_SELECTED_SEATS" as const;
+
+// ✅ You added this constant, keep it:
+export const SET_PASSENGER = "SET_PASSENGER" as const;
 
 export interface TripData {
   _id?: string;
@@ -16,8 +22,15 @@ export interface TripData {
   dateTime: string;
   price: number;
   totalSeats: number;
-    img?: string; // ✅ add this
+  img?: string;
+  passengerName?: string;
+}
 
+// ✅ Add an interface for passenger shape
+export interface PassengerInfo {
+  fullName: string;
+  email: string;
+  phone: string;
 }
 
 export type TripActionTypes =
@@ -27,5 +40,11 @@ export type TripActionTypes =
   | { type: typeof GET_TRIPS_REQUEST }
   | { type: typeof GET_TRIPS_SUCCESS; payload: TripData[] }
   | { type: typeof GET_TRIPS_FAILURE; payload: string }
-  | { type: typeof FILTER_TRIPS; payload: { from: string; to: string; date: string } }
-  | { type: typeof SET_SELECTED_TRIP; payload: TripData[] }
+  | {
+      type: typeof FILTER_TRIPS;
+      payload: { from: string; to: string; date: string };
+    }
+  | { type: typeof SET_SELECTED_TRIP; payload: TripData }
+  | { type: typeof SET_SELECTED_SEATS; payload: string[] }
+  // ✅ Add this new union member:
+  | { type: typeof SET_PASSENGER; payload: PassengerInfo };

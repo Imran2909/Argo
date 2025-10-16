@@ -1,0 +1,248 @@
+/* Fixed artboard as requested */
+.canvas {
+  /* width: 500px !important; */
+  /* height: 920px; */
+  margin: 0 auto;
+  background: #ffffff;
+  padding-top: 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scale: 80%;
+}
+
+.card {
+  border: 1px solid #eef2f7;
+  width: 520px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+}
+
+/* CTAs */
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  padding: 16px 18px 18px;
+  width: 100%;
+}
+
+/* Top success mark */
+.topCheck {
+  margin-top: 2px;
+}
+.checkBadge {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: #e9f7ec;
+  color: #22c55e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 22px;
+  border: 1px solid #d3f0d9;
+}
+
+/* Title / subtitle */
+.heading {
+  margin: 10px 0 4px;
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.subhead {
+  margin: 0 0 14px;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+
+
+/* Blue header */
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2353e3; /* strong blue to match mock */
+  color: #ffffff;
+  padding: 14px 18px;
+}
+.headerLeft {
+
+}
+.headerTitle {
+  font-weight: 700;
+  font-size: 16px;
+}
+.headerSub {
+  opacity: 0.9;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.headerIcon {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Route row */
+.routeRow {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  align-items: center;
+  padding: 18px;
+  gap: 8px;
+  background: #ffffff;
+}
+.routeSide {
+  text-align: left;
+}
+.routeSideRight {
+  text-align: right;
+}
+.code {
+  font-size: 30px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: 1px;
+}
+.cityLine {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 2px;
+}
+.time {
+  color: #0f172a;
+  font-size: 12px;
+  margin-top: 8px;
+  font-weight: 600;
+}
+.routeCenter {
+  display: grid;
+  grid-template-rows: 8px 1fr 8px;
+  align-items: center;
+  justify-items: center;
+}
+.dots {
+  width: 100%;
+  height: 1px;
+  border-bottom: 2px dashed #e2e8f0;
+  margin: 6px 0;
+}
+.centerPlane {
+  color: #2353e3;
+}
+.duration {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 6px;
+}
+
+/* Chips */
+.chipsRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  padding: 0 18px 14px;
+}
+.chip {
+  background: #f6f8fb;
+  border: 1px solid #edf1f7;
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.chipLabel {
+  color: #94a3b8;
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+.chipValue {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: #eef2f7;
+  margin: 4px 18px 0;
+}
+
+/* Total row */
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px 10px;
+}
+.totalLabel {
+  font-weight: 700;
+  color: #0f172a;
+}
+.totalAmount {
+  color: #16a34a; /* green */
+  font-weight: 800;
+  font-size: 18px;
+}
+
+/* QR section */
+.qrWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 18px 0;
+}
+.qrBox {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qrImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.qrNote {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+
+.primaryBtn {
+  background: #2353e3 !important;
+  text-transform: none !important;
+  border-radius: 10px !important;
+  padding: 10px 18px !important;
+  box-shadow: none !important;
+  width: 46%;
+  margin: 0px 10px !important;
+}
+.secondaryBtn {
+  width: 46%;
+  text-transform: none !important;
+  border-radius: 10px !important;
+  padding: 10px 18px !important;
+  border-color: #2353e3 !important;
+  color: #2353e3 !important;
+  background: #ffffff !important;
+}

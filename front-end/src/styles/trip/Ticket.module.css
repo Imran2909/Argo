@@ -1,0 +1,244 @@
+.page {
+  max-width: 1104px;
+  margin: 0 auto;
+  padding: 16px 18px 40px;
+  background: #ffffff;
+  box-sizing: border-box;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Header */
+.headRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 6px;
+}
+.addr {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #6b7280;
+  font-size: 13px;
+}
+.headRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.price {
+  color: #16a34a;
+  font-weight: 800;
+  font-size: 22px;
+}
+.downloadBtn {
+  text-transform: none !important;
+  background: #2563eb !important;
+  border-radius: 8px !important;
+  box-shadow: none !important;
+  padding: 8px 18px !important;
+}
+
+/* Main row (ticket + route) */
+.mainRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Ticket card */
+.ticketCard {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  background: #ffffff;
+  border: 1px solid #e6ebf3;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Left time column */
+.timeCol {
+  background: #f4f7fb;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bigTime {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.cityTiny {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+.axisWrap {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  margin: 8px 0 12px;
+}
+.axisDot {
+  width: 6px;
+  height: 6px;
+  background: #d7deea;
+  border-radius: 999px;
+}
+.axisLine {
+  width: 1px;
+  height: 28px;
+  background: #e2e8f0;
+}
+.axisPlane {
+  color: #bbc5d6;
+  transform: rotate(90deg);
+  font-size: 18px !important;
+}
+
+/* Right ticket body */
+.ticketBody {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Blue header bar */
+.blueBar {
+  background: #4075f1;
+  color: #ffffff;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.userLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+.userName {
+  font-weight: 700;
+}
+.userSub {
+  opacity: 0.95;
+  font-size: 12px;
+}
+.cabin {
+  font-weight: 600;
+}
+
+/* Chips row */
+.chipsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  padding: 12px 14px;
+}
+.chip {
+  background: #f6f8fb;
+  border: 1px solid #e9eef6;
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  align-items: center;
+}
+.chipLabel {
+  color: #94a3b8;
+  font-size: 11px;
+}
+.chipValue {
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* Airline + barcode */
+.airRow {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  align-items: center;
+  padding: 8px 14px 14px;
+}
+.airCode {
+  font-size: 26px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.airSub {
+  color: #6b7280;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.barcode {
+  width: 100%;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.9;
+}
+
+/* Right route card */
+.routeCard {
+  border: 1px solid #e6ebf3;
+  border-radius: 12px;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+}
+.routeImg {
+  width: 92%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Terms & Contact */
+.termsBlock {
+  margin-top: 28px;
+}
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+.subTitle {
+  font-weight: 700;
+  margin: 10px 0 8px;
+  color: #0f172a;
+}
+.bullets {
+  margin: 0 0 16px 0;
+  padding-left: 18px;
+  color: #1f2937;
+  line-height: 1.6;
+}
+.bullets li {
+  margin-bottom: 10px;
+}
+.contactLines {
+  color: #1f2937;
+  line-height: 1.6;
+}
+.contactLines a {
+  color: #2563eb;
+  text-decoration: underline;
+}

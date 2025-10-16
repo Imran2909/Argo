@@ -7,6 +7,8 @@ import {
   GET_TRIPS_FAILURE,
   FILTER_TRIPS,
   SET_SELECTED_TRIP,
+  SET_SELECTED_SEATS,
+  SET_PASSENGER,
 } from "./actionTypes";
 
 import type { TripData } from "./actionTypes";
@@ -19,6 +21,10 @@ interface TripState {
   error: string | null;
   isSearchApplied: boolean;
   selectedTrip: TripData | null;
+  selectedSeats: string[]; // ✅ NEW
+  passenger?: {
+    fullName: string;
+  };
 }
 
 const initialState: TripState = {
@@ -28,6 +34,7 @@ const initialState: TripState = {
   error: null,
   isSearchApplied: false,
   selectedTrip: null,
+  selectedSeats: [],
 };
 
 export const tripReducer = (
@@ -98,6 +105,15 @@ export const tripReducer = (
       return {
         ...state,
         selectedTrip: action.payload,
+      };
+
+    case SET_SELECTED_SEATS:
+      return { ...state, selectedSeats: action.payload };
+
+    case SET_PASSENGER:
+      return {
+        ...state,
+        passenger: action.payload,
       };
 
     default:

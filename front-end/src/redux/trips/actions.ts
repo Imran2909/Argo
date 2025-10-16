@@ -79,3 +79,23 @@ export const filterTrips =
   type: SET_SELECTED_TRIP,
   payload: trip,
 });
+
+// add this simple action creator
+import { SET_SELECTED_SEATS } from "./actionTypes";
+
+export const setSelectedSeats = (seats: string[]) => ({
+  type: SET_SELECTED_SEATS,
+  payload: seats,
+});
+
+
+import { SET_PASSENGER } from "./actionTypes";
+
+export const setPassenger = (passenger: {
+  fullName: string;
+  email: string;
+  phone: string;
+}) => ({
+  type: SET_PASSENGER,
+  payload: passenger,
+});

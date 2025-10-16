@@ -1,0 +1,149 @@
+.page {
+  width: 1104px;
+  margin: 0 auto;
+  padding: 18px 8px 28px;
+  min-height: 100vh;
+}
+
+.heading {
+  font-weight: 700 !important;
+  color: #111827 !important;
+  margin-bottom: 14px !important;
+}
+
+.bookingC{
+  width: 40%;
+}
+/* Cards */
+.card {
+  background: #ffffff !important;
+  border: 1px solid #999b9f !important;
+  border-radius: 10px !important;
+  padding: 14px 16px 18px !important;
+  width: 450px;
+}
+.cardTitle {
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #111827;
+  margin-bottom: 6px;
+}
+.cardHint {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 22px !important;
+  margin-top: 10px !important;
+}
+
+/* Fields */
+.fieldCol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.input :global(.MuiInputBase-root) {
+  background: #f9fafb;
+}
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.inputHalf :global(.MuiInputBase-root) {
+  background: #f9fafb;
+}
+
+/* Radios */
+.radioItem {
+  border: 1px solid #e6edf7;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 8px 0 !important;
+}
+.radioActive {
+  background: #eef4ff;
+  border-color: #cfe0ff;
+}
+
+/* Summary */
+.summary {
+  background: #ffffff !important;
+  border: 1px solid #999b9f !important;
+  border-radius: 10px !important;
+  padding: 0 0 16px !important;
+  width: 450px;
+}
+.summaryHeader {
+  padding: 14px 16px 10px;
+}
+.summaryTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111827;
+  font-weight: 700 !important;
+}
+.summaryHero {
+  height: 110px;
+  margin: 0 16px 8px;
+  border-radius: 8px;
+  background: radial-gradient(100% 100% at 0% 0%, #20324d 0%, #0f1b2a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plane {
+  font-size: 26px;
+}
+
+.summaryList {
+  padding: 6px 16px 0;
+}
+.row {
+  display: grid;
+  grid-template-columns: 22px 70px 1fr;
+  align-items: center;
+  padding: 6px 0;
+}
+.leftIcon {
+  text-align: center;
+  opacity: 0.7;
+}
+.left {
+  font-size: 12px;
+  color: #6b7280;
+}
+.right {
+  font-size: 13px;
+  font-weight: 600 !important;
+  color: #111827;
+  text-align: right;
+}
+
+.sep {
+  margin: 8px 16px 10px !important;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 16px 12px;
+  align-items: center;
+}
+.totalLabel {
+  font-weight: 600;
+  color: #111827;
+}
+.totalAmount {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+/* Pay CTA */
+.payBtn {
+  background: #2563eb !important;
+  text-transform: none !important;
+  border-radius: 8px !important;
+  margin: 0px 4% !important;
+  box-shadow: none !important;
+  width: 93%  !important;
+}

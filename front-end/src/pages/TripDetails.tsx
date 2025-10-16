@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
-import type { RootState } from "../redux/store";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../redux/store";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 
@@ -8,6 +8,8 @@ import Button from "@mui/material/Button";
 import styles from "../styles/trip/TripDetails.module.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/footer/Footer";
+import { setSelectedSeats } from "../redux/trips/actions";
+import { toast } from "react-toastify";
 
 const SEATS_PER_ROW = 6;
 
@@ -45,6 +47,7 @@ function buildSeatLabels(totalSeats: number) {
 }
 
 export default function TripDetails() {
+  const dispatch = useDispatch<AppDispatch>();
   const navigate = useNavigate();
   const selectedTrip = useSelector(
     (state: RootState) => state.trips.selectedTrip
@@ -74,12 +77,21 @@ export default function TripDetails() {
   // Hard-coded booked seats to replicate the screenshot visual (non-interactive)
   const booked = useMemo<string[]>(
     () => [
-      "A2", "A6",
-      "B3", "B5",
-      "C2", "C6",
-      "D1", "D3", "D6",
-      "E1", "E2",
-      "F2", "F3", "F4", "F6",
+      "A2",
+      "A6",
+      "B3",
+      "B5",
+      "C2",
+      "C6",
+      "D1",
+      "D3",
+      "D6",
+      "E1",
+      "E2",
+      "F2",
+      "F3",
+      "F4",
+      "F6",
     ],
     []
   );
@@ -91,114 +103,126 @@ export default function TripDetails() {
     );
   };
 
+  const onConfirm = () => {
+    if (selected.length === 0) {
+      toast.error("Please select at least 1 seat before continuing.");
+      return;
+    }
+    dispatch(setSelectedSeats(selected));
+    navigate("/payment");
+  };
+
   return (
     <>
-   
-      <Header/>
-    <div className={styles.page}>
-      {/* Top image */}
-      <div className={styles.bannerWrap}>
-        <img src={bannerImage} alt="Trip Banner" className={styles.banner} />
+      <Header />
+      <div className={styles.page}>
+        {/* Top image */}
+        <div className={styles.bannerWrap}>
+          <img src={bannerImage} alt="Trip Banner" className={styles.banner} />
+        </div>
+
+        {/* Trip Details Card */}
+        <section className={styles.card}>
+          <h3 className={styles.cardTitle}>Trip Details</h3>
+
+          <div className={styles.detailsGrid}>
+            <div className={styles.col}>
+              <div className={styles.metaBlock}>
+                <div className={styles.metaLabel}>From</div>
+                <div className={styles.metaValue}>{from}</div>
+              </div>
+
+              <div className={styles.metaBlock}>
+                <div className={styles.metaLabel}>Date</div>
+                <div className={styles.metaValue}>{date}</div>
+              </div>
+            </div>
+
+            <div className={styles.colRight}>
+              <div className={styles.metaBlockRight}>
+                <div className={styles.metaLabel}>To</div>
+                <div className={styles.metaValue}>{to}</div>
+              </div>
+
+              <div className={styles.metaBlockRight}>
+                <div className={styles.metaLabel}>Time</div>
+                <div className={styles.metaValue}>{time}</div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.fareWrap}>
+            <div className={styles.fareLabel}>Fare per seat</div>
+            <div className={styles.farePrice}>{formatMoney(price)}</div>
+          </div>
+        </section>
+
+        {/* Seat Selection */}
+        <section className={styles.card}>
+          <h3 className={styles.cardTitle}>Select Your Seat</h3>
+
+          <div className={styles.seatArea}>
+            <div className={styles.cabinTitle}>Deluxe Cabin</div>
+
+            <div className={styles.seatGrid}>
+              {seatLabels.map((label) => {
+                const isBooked = booked.includes(label);
+                const isSelected = selected.includes(label);
+                return (
+                  <button
+                    key={label}
+                    onClick={() => toggleSeat(label)}
+                    className={[
+                      styles.seatBtn,
+                      isBooked ? styles.seatBooked : "",
+                      isSelected ? styles.seatSelected : "",
+                    ].join(" ")}
+                    aria-label={`Seat ${label}${isBooked ? " (booked)" : ""}`}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Legend */}
+            <div className={styles.legend}>
+              <span className={styles.legendItem}>
+                <span className={`${styles.dot} ${styles.dotAvailable}`} />
+                Available
+              </span>
+              <span className={styles.legendItem}>
+                <span className={`${styles.dot} ${styles.dotBooked}`} />
+                Booked
+              </span>
+              <span className={styles.legendItem}>
+                <span className={`${styles.dot} ${styles.dotSelected}`} />
+                Selected
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* Selected Seats */}
+        <section className={styles.card}>
+          <h3 className={styles.cardTitle}>Selected Seats</h3>
+          <div className={styles.selectedList}>
+            {selected.length ? selected.join(", ") : "—"}
+          </div>
+        </section>
+
+        {/* Confirm Button */}
+        <div className={styles.footerCta}>
+          <Button
+            variant="contained"
+            className={styles.confirmBtn}
+            onClick={onConfirm}
+          >
+            Confirm Booking
+          </Button>
+        </div>
       </div>
-
-      {/* Trip Details Card */}
-      <section className={styles.card}>
-        <h3 className={styles.cardTitle}>Trip Details</h3>
-
-        <div className={styles.detailsGrid}>
-          <div className={styles.col}>
-            <div className={styles.metaBlock}>
-              <div className={styles.metaLabel}>From</div>
-              <div className={styles.metaValue}>{from}</div>
-            </div>
-
-            <div className={styles.metaBlock}>
-              <div className={styles.metaLabel}>Date</div>
-              <div className={styles.metaValue}>{date}</div>
-            </div>
-          </div>
-
-          <div className={styles.colRight}>
-            <div className={styles.metaBlockRight}>
-              <div className={styles.metaLabel}>To</div>
-              <div className={styles.metaValue}>{to}</div>
-            </div>
-
-            <div className={styles.metaBlockRight}>
-              <div className={styles.metaLabel}>Time</div>
-              <div className={styles.metaValue}>{time}</div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.fareWrap}>
-          <div className={styles.fareLabel}>Fare per seat</div>
-          <div className={styles.farePrice}>{formatMoney(price)}</div>
-        </div>
-      </section>
-
-      {/* Seat Selection */}
-      <section className={styles.card}>
-        <h3 className={styles.cardTitle}>Select Your Seat</h3>
-
-        <div className={styles.seatArea}>
-          <div className={styles.cabinTitle}>Deluxe Cabin</div>
-
-          <div className={styles.seatGrid}>
-            {seatLabels.map((label) => {
-              const isBooked = booked.includes(label);
-              const isSelected = selected.includes(label);
-              return (
-                <button
-                  key={label}
-                  onClick={() => toggleSeat(label)}
-                  className={[
-                    styles.seatBtn,
-                    isBooked ? styles.seatBooked : "",
-                    isSelected ? styles.seatSelected : "",
-                  ].join(" ")}
-                  aria-label={`Seat ${label}${isBooked ? " (booked)" : ""}`}
-                >
-                  {label}
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Legend */}
-          <div className={styles.legend}>
-            <span className={styles.legendItem}>
-              <span className={`${styles.dot} ${styles.dotAvailable}`} />
-              Available
-            </span>
-            <span className={styles.legendItem}>
-              <span className={`${styles.dot} ${styles.dotBooked}`} />
-              Booked
-            </span>
-            <span className={styles.legendItem}>
-              <span className={`${styles.dot} ${styles.dotSelected}`} />
-              Selected
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Selected Seats */}
-      <section className={styles.card}>
-        <h3 className={styles.cardTitle}>Selected Seats</h3>
-        <div className={styles.selectedList}>
-          {selected.length ? selected.join(", ") : "—"}
-        </div>
-      </section>
-
-      {/* Confirm Button */}
-      <div className={styles.footerCta}>
-        <Button variant="contained" className={styles.confirmBtn}>
-          Confirm Booking
-        </Button>
-      </div>
-    </div>
-    <Footer/>
-     </>
+      <Footer />
+    </>
   );
 }

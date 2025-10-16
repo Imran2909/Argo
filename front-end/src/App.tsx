@@ -9,6 +9,9 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Admin from "./pages/Admin";
 import TripDetails from "./pages/TripDetails";
+import Payment from "./pages/Payment";
+import ConfirmBooking from "./pages/ConfirmBooking";
+import Ticket from "./pages/Ticket";
 
 const theme = createTheme({
   typography: {
@@ -44,6 +47,10 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/trip-details" element={<TripDetails />} />
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/confirm-booking" element={<ConfirmBooking />} />
+              <Route path="/ticket" element={<Ticket/>} />
+              <Route path="*" element={<div>404 Not Found</div>} />
             </Routes>
           </Suspense>
         </div>
